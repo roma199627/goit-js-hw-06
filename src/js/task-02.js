@@ -17,3 +17,4 @@ ingredient.forEach((ingredient) => {
   item.classList.add("item");
   document.querySelector("#ingredient").prepend(item);
 });
+
