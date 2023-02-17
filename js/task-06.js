@@ -1,26 +1,20 @@
 
-const Input = document.getElementById('validation-input');
+const input = document.querySelector("#validation-input");
+input.addEventListener("blur", onBlur);
 
-const datalength = Input.getAttribute('data-length');
-const indatalength = parseInt(datalength, 10);
-Input.oninput = function () {
-    if (Input === indatalength) {
-        Input.classList.remove("invalid");
-        Input.classList.add("valid");
-       
+function  onBlur(event) {
+    const datalength = event.currentTarget;
+    const indatalength = Number(datalength.dataset.length);
+    if (datalength.value.length === indatalength) {
+        datalength.classList.remove('invalid');
+        datalength.classList.add('valid');
     }
-    
-        if ( datalength === 0) {
-            Input.classList.remove("invalid");  
-            Input.classList.remove("valid");
-        }
-       
-    
-        if (Input !== indatalength && Input !== 0) {
-            Input.classList.add("invalid");
-              }
-    
-};
+    else{
+        datalength.classList.remove('valid');
+        datalength.classList.add('invalid');  
+    }
+}
+
 
 
 
